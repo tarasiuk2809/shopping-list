@@ -1,9 +1,44 @@
-/* Новые элементы должны добавляться в список по нажатию на Enter */
+const sendInput = document.querySelector('#input');
+const items = document.querySelector('.items');
+let itemsArray = Array.from(items);
+const allItems = document.getElementsByClassName('item');
+let itemText = null;
 
-/* Пустые элементы не должны добавляться */
+sendInput.addEventListener('keydown', function (event) {
+  if (event.key == 'Enter') {
+    itemText = sendInput.value;
+    let newItem = document.createElement('div');
+    newItem.classList.add('item');
+    newItem.textContent = itemText;
+    newItem.addEventListener('click', function () {
+      newItem.classList.toggle('done');
+    })
 
-/* Если кликнуть на элемент списка, он зачеркивается */
+    if (itemText != '') {
+      items.append(newItem);
 
-/* Если кликнуть повторно уже на зачеркнутый, он снова становится обычным */
+    }
 
-/* Очищать input после добавления нового элемента в список */
+    sendInput.value = '';
+  }
+
+}
+
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
